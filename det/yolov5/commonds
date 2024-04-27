@@ -1,0 +1,18 @@
+python detect.py --name test1 --weights yolov5x.pt --conf-thres 0.3 --source data/videos/x1.mp4 --img-size 1920 --classes 2 7 --view-img --save-txt --save-conf
+python detect.py --name test2 --weights yolov5x.pt --source data/videos/x1.mp4 --img-size 960 --classes 2 7 --view-img --save-txt --save-conf
+
+
+
+python detect.py --name test3 --weights yolov5x6.pt --source data/videos/x1.mp4 --img-size 768 --classes 2 7 --view-img --save-txt --save-conf
+python detect.py --name test3 --weights yolov5x6.pt --source data/videos/xx.mp4 --classes 2 7 --view-img --save-txt --save-conf
+python detect.py --name test5 --weights best.pt --source data/videos/xx.mp4 --classes 2 7 --view-img --save-txt --save-conf
+python detect.py --name xx2-det --weights weights/yolov5l-xs-1.pt --source data/videos/xx2.mp4 --view-img --save-txt --save-conf --classes 2 3 4 5
+python detect.py --name xx2-det-2 --weights weights/yolov5l-xs-2.pt --source data/videos/xx2.mp4 --view-img --save-txt --save-conf --classes 2 3 4 5
+python detect.py --name xx2-det-2-x1 --weights weights/yolov5l-xs-2.pt --source data/videos/xx2.mp4 --view-img --save-txt --save-conf --classes 2 3 4 5
+
+
+python vehicle_detection.py --name test20240401 --weights det/yolov5/weights/yolov5l-xs-1.pt --source det/yolov5/data/videos/wx1.mp4 --view-img --save-txt --save-conf --classes 2 3 4 5
+python track_new.py --name test20240401 --weights det/yolov5/weights/yolov5l-xs-1.pt --source det/yolov5/data/videos/wx1.mp4 --view-img --save-txt --save-conf --classes 2 3 4 5
+
+
+

@@ -1,0 +1,41 @@
+video_type: 'mp4'
+img_size:
+  - 1920
+  - 1080
+reverse: False
+border_gap: 10
+det_config:
+  imgsz:
+    - 640
+    - 640
+  conf_thres: 0.1
+  iou_thres: 0.45
+  max_det: 1000
+  device: ''
+  classes:
+    - 0
+    - 1
+    - 2
+  cls_min_box_area:
+    - 500
+    - 1000
+    - 3000
+  half: True
+  max_frame: 10000
+track_config:
+  track_thresh: 0.4
+  track_buffer: 30
+  match_thresh: 0.9
+  aspect_ratio_thresh: 1.6
+  min_box_area: 10
+  mot20: False
+  frame_rate: 25
+  cls_choose:
+area_division:
+  model_type: 'vit_h'
+camera_cal_config:
+  max_dotted_line_num: 4
+  dotted_line_len: 6.0
+  dotted_line_gap_len: 9.0
+  lane_width: 3.75
+lane_line_completion:
