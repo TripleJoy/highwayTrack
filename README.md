@@ -72,9 +72,9 @@ pip install -r requirements.txt
 
 ```python
 def forward(self, input: Tensor) -> Tensor:
-    # return F.interpolate(input, self.size, this.scale_factor, this.mode, this.align_corners,
-    #                      recompute_scale_factor=this.recompute_scale_factor)
-    return F.interpolate(input, this.size, this.scale_factor, this.mode, this.align_corners)
+    # return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners,
+    #                      recompute_scale_factor=self.recompute_scale_factor)
+    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners)
 ```
 完成修改后保存文件。
 
