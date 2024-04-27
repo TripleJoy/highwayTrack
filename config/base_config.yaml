@@ -17,9 +17,9 @@ det_config:
     - 1
     - 2
   cls_min_box_area:
+    - 300
     - 500
-    - 1000
-    - 3000
+    - 1500
   half: True
   max_frame: 10000
 track_config:

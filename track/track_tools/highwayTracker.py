@@ -171,7 +171,6 @@ class STrack(BaseTrack):
         flag1,data = \
             get_vehicle_infos(box, self.cls,mask, self.cal_params, self.ori_pt, self.center_point, pos_map)
         if not flag1:
-            # print(self.is_predict)
             self.is_activated = False
             self.state = TrackState.Removed
             return
@@ -190,7 +189,6 @@ class STrack(BaseTrack):
     # @jit(nopython=True)
     def predict_box(self):
         if self.tracklet_len <= 4:
-            # print('predict_box: ',self.track_id, 0)
             return self.tlwh_to_tlbr(self.tlwh)
         else:
             position_predict_x, position_predict_y = self.position_predict
@@ -249,7 +247,6 @@ class STrack(BaseTrack):
         if self.tracklet_len <= 3:
             return None
         else:
-
             return self.predict_next_point(self.vehicle_positions)
 
     @property
@@ -479,12 +476,13 @@ class HIGHWAYTracker(object):
         self.removed_stracks.extend(removed_stracks)
         self.tracked_stracks, self.lost_stracks = remove_duplicate_stracks(self.tracked_stracks, self.lost_stracks)
         # get scores of lost tracks
-        output_stracks = [track for track in self.tracked_stracks if track.is_activated]
-        total_boxes = [t.box for t in output_stracks]
-        for t in output_stracks:
+        total_boxes = [track.box for track in self.tracked_stracks]
+        for t in self.tracked_stracks:
             t.fix_update(total_boxes,mask,self.pos_map,self.img_size)
-        output_stracks = [track for track in output_stracks if track.is_activated]
-        self.removed_stracks.extend([track for track in output_stracks if not track.is_activated])
+        self.removed_stracks.extend([track for track in self.tracked_stracks if track.state == TrackState.Removed])
+        self.tracked_stracks = [track for track in self.tracked_stracks if track.state == TrackState.Tracked]
+        output_stracks = [track for track in self.tracked_stracks]
+
         return output_stracks,total_boxes
 
 
